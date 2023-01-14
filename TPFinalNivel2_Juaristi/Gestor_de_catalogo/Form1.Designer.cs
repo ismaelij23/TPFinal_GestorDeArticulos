@@ -42,6 +42,7 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.lblFiltroRapido = new System.Windows.Forms.Label();
             this.txtFiltroRapido = new System.Windows.Forms.TextBox();
+            this.txtFiltro2 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxImg)).BeginInit();
             this.SuspendLayout();
@@ -136,6 +137,7 @@
             this.cboCampo.Name = "cboCampo";
             this.cboCampo.Size = new System.Drawing.Size(121, 21);
             this.cboCampo.TabIndex = 7;
+            this.cboCampo.SelectedIndexChanged += new System.EventHandler(this.cboCampo_SelectedIndexChanged);
             // 
             // cboCriterio
             // 
@@ -145,6 +147,7 @@
             this.cboCriterio.Name = "cboCriterio";
             this.cboCriterio.Size = new System.Drawing.Size(121, 21);
             this.cboCriterio.TabIndex = 8;
+            this.cboCriterio.SelectedIndexChanged += new System.EventHandler(this.cboCriterio_SelectedIndexChanged);
             // 
             // lblFiltroAvanzado
             // 
@@ -195,12 +198,20 @@
             this.txtFiltroRapido.TabIndex = 13;
             this.txtFiltroRapido.TextChanged += new System.EventHandler(this.txtFiltroRapido_TextChanged);
             // 
+            // txtFiltro2
+            // 
+            this.txtFiltro2.Location = new System.Drawing.Point(458, 379);
+            this.txtFiltro2.Name = "txtFiltro2";
+            this.txtFiltro2.Size = new System.Drawing.Size(133, 20);
+            this.txtFiltro2.TabIndex = 14;
+            // 
             // FrmGestor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGray;
-            this.ClientSize = new System.Drawing.Size(961, 392);
+            this.ClientSize = new System.Drawing.Size(961, 402);
+            this.Controls.Add(this.txtFiltro2);
             this.Controls.Add(this.txtFiltroRapido);
             this.Controls.Add(this.lblFiltroRapido);
             this.Controls.Add(this.btnBuscar);
@@ -246,6 +257,7 @@
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Label lblFiltroRapido;
         private System.Windows.Forms.TextBox txtFiltroRapido;
+        private System.Windows.Forms.TextBox txtFiltro2;
     }
 }
 

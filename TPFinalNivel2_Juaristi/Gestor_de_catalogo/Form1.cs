@@ -20,12 +20,19 @@ namespace Gestor_de_catalogo
         {
             InitializeComponent();
         }
+
+        // Eventos
         private void FrmGestor_Load(object sender, EventArgs e)
         {
             cargarDatos_hacia_dgv();
             ocultarColumnas();
-            ocultarColumnas();
             dgvArticulos.Columns["Precio"].DefaultCellStyle.Format = "0.00";
+            cboCampo.Items.Add("Código");
+            cboCampo.Items.Add("Nombre");
+            cboCampo.Items.Add("Categoría");
+            cboCampo.Items.Add("Marca");
+            cboCampo.Items.Add("Precio");
+            txtFiltro2.Visible= false;
         }
         private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
         {
@@ -88,6 +95,36 @@ namespace Gestor_de_catalogo
                 throw ex;
             }
         }
+        private void cboCampo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string opcion_select = cboCampo.SelectedItem.ToString();
+
+            if(opcion_select == "Precio")
+            {
+                cboCriterio.Items.Clear();
+                cboCriterio.Items.Add("Hasta");
+                cboCriterio.Items.Add("Entre");
+                cboCriterio.Items.Add("Mas de");
+            }
+            else
+            {
+                cboCriterio.Items.Clear();
+                cboCriterio.Items.Add("Comienza con");
+                cboCriterio.Items.Add("Termina con");
+                cboCriterio.Items.Add("Contiene");
+            }
+        }
+        private void cboCriterio_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string opcion_select = cboCriterio.SelectedItem.ToString();
+
+            if (opcion_select == "Entre")
+                txtFiltro2.Visible = true;
+            else
+                txtFiltro2.Visible = false;
+        }
+
+        // Funciones
         private void cargarDatos_hacia_dgv()
         {
             ArticulosDatos articulos_catalogo = new ArticulosDatos();
