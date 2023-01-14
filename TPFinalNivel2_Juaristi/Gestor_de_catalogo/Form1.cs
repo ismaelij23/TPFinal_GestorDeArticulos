@@ -62,7 +62,24 @@ namespace Gestor_de_catalogo
         }
         private void btnEliminar_Click(object sender, EventArgs e)
         {
+            Articulo seleccionado;
+            ArticulosDatos datos_a_eliminar = new ArticulosDatos();
+            try
+            {
+                DialogResult respuesta = MessageBox.Show("Está seguro de querer eliminarlo?", "Eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
+                if (respuesta == DialogResult.Yes)
+                {
+                    seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                    datos_a_eliminar.Eliminar(seleccionado.Id);
+                    cargarDatos_hacia_dgv();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
         private void cargarImagen(string imagen)
         {
