@@ -24,6 +24,8 @@ namespace Gestor_de_catalogo
         private void FrmGestor_Load(object sender, EventArgs e)
         {
             cargarDatos_hacia_dgv();
+            dgvArticulos.Columns["UrlImg"].Visible = false;
+            dgvArticulos.Columns["Id"].Visible = false;
             dgvArticulos.Columns["Precio"].DefaultCellStyle.Format = "0.00";
         }
         private void cargarDatos_hacia_dgv()
@@ -34,6 +36,7 @@ namespace Gestor_de_catalogo
             {
                 listaArticulos = articulos_catalogo.listar();
                 dgvArticulos.DataSource = listaArticulos;
+                cargarImagen(listaArticulos[0].UrlImg);
             }
             catch (Exception ex)
             {
@@ -57,5 +60,31 @@ namespace Gestor_de_catalogo
             ventanaModificar.ShowDialog();
             cargarDatos_hacia_dgv();
         }
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void cargarImagen(string imagen)
+        {
+            try
+            {
+               picBoxImg.Load(imagen);
+            }
+            catch (Exception ex)
+            {
+                picBoxImg.Load("https://www.jennybeaumont.com/wp-content/uploads/2015/03/placeholder.gif");
+            }
+        }
+
+        private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvArticulos.CurrentRow != null)
+            {
+                Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                cargarImagen(seleccionado.UrlImg);
+            }
+        }
+
+
     }
 }

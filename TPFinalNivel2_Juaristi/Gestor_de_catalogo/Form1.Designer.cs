@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.dgvArticulos = new System.Windows.Forms.DataGridView();
-            this.picBoxCelular = new System.Windows.Forms.PictureBox();
+            this.picBoxImg = new System.Windows.Forms.PictureBox();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
@@ -41,26 +41,28 @@
             this.txtFiltro = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBoxCelular)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxImg)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvArticulos
             // 
             this.dgvArticulos.BackgroundColor = System.Drawing.Color.DarkBlue;
             this.dgvArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvArticulos.Location = new System.Drawing.Point(12, 46);
+            this.dgvArticulos.Location = new System.Drawing.Point(12, 12);
             this.dgvArticulos.Name = "dgvArticulos";
             this.dgvArticulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvArticulos.Size = new System.Drawing.Size(856, 241);
+            this.dgvArticulos.Size = new System.Drawing.Size(685, 275);
             this.dgvArticulos.TabIndex = 0;
+            this.dgvArticulos.SelectionChanged += new System.EventHandler(this.dgvArticulos_SelectionChanged);
             // 
-            // picBoxCelular
+            // picBoxImg
             // 
-            this.picBoxCelular.Location = new System.Drawing.Point(874, 46);
-            this.picBoxCelular.Name = "picBoxCelular";
-            this.picBoxCelular.Size = new System.Drawing.Size(154, 241);
-            this.picBoxCelular.TabIndex = 1;
-            this.picBoxCelular.TabStop = false;
+            this.picBoxImg.Location = new System.Drawing.Point(703, 12);
+            this.picBoxImg.Name = "picBoxImg";
+            this.picBoxImg.Size = new System.Drawing.Size(245, 275);
+            this.picBoxImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picBoxImg.TabIndex = 1;
+            this.picBoxImg.TabStop = false;
             // 
             // btnAgregar
             // 
@@ -102,6 +104,7 @@
             this.btnEliminar.TabIndex = 4;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // lblCampo
             // 
@@ -177,7 +180,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGray;
-            this.ClientSize = new System.Drawing.Size(1040, 409);
+            this.ClientSize = new System.Drawing.Size(961, 392);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.txtFiltro);
             this.Controls.Add(this.lblFiltroAvanzado);
@@ -188,18 +191,18 @@
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnAgregar);
-            this.Controls.Add(this.picBoxCelular);
+            this.Controls.Add(this.picBoxImg);
             this.Controls.Add(this.dgvArticulos);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(1056, 448);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(1056, 448);
+            this.MinimumSize = new System.Drawing.Size(977, 431);
             this.Name = "FrmGestor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestor";
             this.Load += new System.EventHandler(this.FrmGestor_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBoxCelular)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxImg)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -208,7 +211,7 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgvArticulos;
-        private System.Windows.Forms.PictureBox picBoxCelular;
+        private System.Windows.Forms.PictureBox picBoxImg;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnEliminar;
