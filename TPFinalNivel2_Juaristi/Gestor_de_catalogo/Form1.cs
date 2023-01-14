@@ -24,6 +24,7 @@ namespace Gestor_de_catalogo
         private void FrmGestor_Load(object sender, EventArgs e)
         {
             cargarDatos_hacia_dgv();
+            dgvArticulos.Columns["Precio"].DefaultCellStyle.Format = "0.00";
         }
         private void cargarDatos_hacia_dgv()
         {
@@ -45,6 +46,15 @@ namespace Gestor_de_catalogo
         {
             Frm_alta_articulo ventanaAgregar = new Frm_alta_articulo();
             ventanaAgregar.ShowDialog();
+            cargarDatos_hacia_dgv();
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            Articulo seleccionado;
+            seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+            Frm_alta_articulo ventanaModificar = new Frm_alta_articulo(seleccionado);
+            ventanaModificar.ShowDialog();
             cargarDatos_hacia_dgv();
         }
     }

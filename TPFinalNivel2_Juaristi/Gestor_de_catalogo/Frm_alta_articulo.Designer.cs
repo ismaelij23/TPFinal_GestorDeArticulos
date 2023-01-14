@@ -146,6 +146,7 @@
             this.txtUrl.Name = "txtUrl";
             this.txtUrl.Size = new System.Drawing.Size(141, 20);
             this.txtUrl.TabIndex = 12;
+            this.txtUrl.Leave += new System.EventHandler(this.txtUrl_Leave);
             // 
             // txtPrecio
             // 
@@ -176,7 +177,8 @@
             // 
             this.pictureBoxImg.Location = new System.Drawing.Point(319, 90);
             this.pictureBoxImg.Name = "pictureBoxImg";
-            this.pictureBoxImg.Size = new System.Drawing.Size(214, 239);
+            this.pictureBoxImg.Size = new System.Drawing.Size(214, 299);
+            this.pictureBoxImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxImg.TabIndex = 16;
             this.pictureBoxImg.TabStop = false;
             // 
@@ -198,6 +200,7 @@
             this.btnAceptar.TabIndex = 18;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // btnCancelar
             // 
@@ -234,6 +237,7 @@
             this.Name = "Frm_alta_articulo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Articulo";
+            this.Load += new System.EventHandler(this.Frm_alta_articulo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImg)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
