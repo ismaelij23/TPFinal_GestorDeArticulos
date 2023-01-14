@@ -40,6 +40,8 @@
             this.lblFiltroAvanzado = new System.Windows.Forms.Label();
             this.txtFiltro = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
+            this.lblFiltroRapido = new System.Windows.Forms.Label();
+            this.txtFiltroRapido = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxImg)).BeginInit();
             this.SuspendLayout();
@@ -109,20 +111,20 @@
             // lblCampo
             // 
             this.lblCampo.AutoSize = true;
-            this.lblCampo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCampo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCampo.Location = new System.Drawing.Point(12, 360);
             this.lblCampo.Name = "lblCampo";
-            this.lblCampo.Size = new System.Drawing.Size(54, 16);
+            this.lblCampo.Size = new System.Drawing.Size(60, 16);
             this.lblCampo.TabIndex = 5;
             this.lblCampo.Text = "Campo:";
             // 
             // lblCriterio
             // 
             this.lblCriterio.AutoSize = true;
-            this.lblCriterio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCriterio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCriterio.Location = new System.Drawing.Point(210, 360);
             this.lblCriterio.Name = "lblCriterio";
-            this.lblCriterio.Size = new System.Drawing.Size(55, 16);
+            this.lblCriterio.Size = new System.Drawing.Size(65, 16);
             this.lblCriterio.TabIndex = 6;
             this.lblCriterio.Text = "Criterio: ";
             // 
@@ -147,10 +149,10 @@
             // lblFiltroAvanzado
             // 
             this.lblFiltroAvanzado.AutoSize = true;
-            this.lblFiltroAvanzado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFiltroAvanzado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFiltroAvanzado.Location = new System.Drawing.Point(410, 360);
             this.lblFiltroAvanzado.Name = "lblFiltroAvanzado";
-            this.lblFiltroAvanzado.Size = new System.Drawing.Size(42, 16);
+            this.lblFiltroAvanzado.Size = new System.Drawing.Size(50, 16);
             this.lblFiltroAvanzado.TabIndex = 9;
             this.lblFiltroAvanzado.Text = "Filtro: ";
             // 
@@ -175,12 +177,32 @@
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = false;
             // 
+            // lblFiltroRapido
+            // 
+            this.lblFiltroRapido.AutoSize = true;
+            this.lblFiltroRapido.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFiltroRapido.Location = new System.Drawing.Point(357, 297);
+            this.lblFiltroRapido.Name = "lblFiltroRapido";
+            this.lblFiltroRapido.Size = new System.Drawing.Size(95, 16);
+            this.lblFiltroRapido.TabIndex = 12;
+            this.lblFiltroRapido.Text = "Filtro rapido:";
+            // 
+            // txtFiltroRapido
+            // 
+            this.txtFiltroRapido.Location = new System.Drawing.Point(458, 293);
+            this.txtFiltroRapido.Name = "txtFiltroRapido";
+            this.txtFiltroRapido.Size = new System.Drawing.Size(133, 20);
+            this.txtFiltroRapido.TabIndex = 13;
+            this.txtFiltroRapido.TextChanged += new System.EventHandler(this.txtFiltroRapido_TextChanged);
+            // 
             // FrmGestor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGray;
             this.ClientSize = new System.Drawing.Size(961, 392);
+            this.Controls.Add(this.txtFiltroRapido);
+            this.Controls.Add(this.lblFiltroRapido);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.txtFiltro);
             this.Controls.Add(this.lblFiltroAvanzado);
@@ -222,6 +244,8 @@
         private System.Windows.Forms.Label lblFiltroAvanzado;
         private System.Windows.Forms.TextBox txtFiltro;
         private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.Label lblFiltroRapido;
+        private System.Windows.Forms.TextBox txtFiltroRapido;
     }
 }
 

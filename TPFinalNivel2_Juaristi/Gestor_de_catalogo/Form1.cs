@@ -20,38 +20,45 @@ namespace Gestor_de_catalogo
         {
             InitializeComponent();
         }
-
         private void FrmGestor_Load(object sender, EventArgs e)
         {
             cargarDatos_hacia_dgv();
-            dgvArticulos.Columns["UrlImg"].Visible = false;
-            dgvArticulos.Columns["Id"].Visible = false;
+            ocultarColumnas();
+            ocultarColumnas();
             dgvArticulos.Columns["Precio"].DefaultCellStyle.Format = "0.00";
         }
-        private void cargarDatos_hacia_dgv()
+        private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
         {
-            ArticulosDatos articulos_catalogo = new ArticulosDatos();
-
-            try
+            if (dgvArticulos.CurrentRow != null)
             {
-                listaArticulos = articulos_catalogo.listar();
-                dgvArticulos.DataSource = listaArticulos;
-                cargarImagen(listaArticulos[0].UrlImg);
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.ToString());
+                Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                cargarImagen(seleccionado.UrlImg);
             }
         }
+        private void txtFiltroRapido_TextChanged(object sender, EventArgs e)
+        {
+            List<Articulo> lista_articulos_filtrados;
+            string filtro = txtFiltroRapido.Text;
 
+            if(filtro.Length >= 3)
+            {
+                lista_articulos_filtrados = listaArticulos.FindAll(x => x.Codigo.ToUpper().Contains(txtFiltroRapido.Text.ToUpper()) || x.Nombre.ToUpper().Contains(txtFiltroRapido.Text.ToUpper()) || x.Marca.Descripcion.ToUpper().Contains(txtFiltroRapido.Text.ToUpper()) || x.Categoria.Descripcion.ToUpper().Contains(txtFiltroRapido.Text.ToUpper()));
+            }
+            else
+            {
+                lista_articulos_filtrados = listaArticulos;
+            }
+
+            dgvArticulos.DataSource = null;
+            dgvArticulos.DataSource = lista_articulos_filtrados;
+            ocultarColumnas();
+        }
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             Frm_alta_articulo ventanaAgregar = new Frm_alta_articulo();
             ventanaAgregar.ShowDialog();
             cargarDatos_hacia_dgv();
         }
-
         private void btnModificar_Click(object sender, EventArgs e)
         {
             Articulo seleccionado;
@@ -81,6 +88,22 @@ namespace Gestor_de_catalogo
                 throw ex;
             }
         }
+        private void cargarDatos_hacia_dgv()
+        {
+            ArticulosDatos articulos_catalogo = new ArticulosDatos();
+
+            try
+            {
+                listaArticulos = articulos_catalogo.listar();
+                dgvArticulos.DataSource = listaArticulos;
+                cargarImagen(listaArticulos[0].UrlImg);
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+        }
         private void cargarImagen(string imagen)
         {
             try
@@ -92,14 +115,10 @@ namespace Gestor_de_catalogo
                 picBoxImg.Load("https://www.jennybeaumont.com/wp-content/uploads/2015/03/placeholder.gif");
             }
         }
-
-        private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
+        private void ocultarColumnas()
         {
-            if (dgvArticulos.CurrentRow != null)
-            {
-                Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
-                cargarImagen(seleccionado.UrlImg);
-            }
+            dgvArticulos.Columns["UrlImg"].Visible = false;
+            dgvArticulos.Columns["Id"].Visible = false;
         }
 
 

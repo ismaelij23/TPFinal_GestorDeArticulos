@@ -26,7 +26,6 @@ namespace Gestor_de_catalogo
             lblTitulo.Text = "Modificar Articulo";
             txtPrecio.Text = Math.Round(articulo.Precio, 2).ToString();
         }
-
         private void Frm_alta_articulo_Load(object sender, EventArgs e)
         {
             CategoriasDatos cboCategoria_datos = new CategoriasDatos();
@@ -60,7 +59,6 @@ namespace Gestor_de_catalogo
             }
 
         }
-
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             ArticulosDatos datos_articulo_a_agregar_modificar = new ArticulosDatos();
@@ -109,7 +107,6 @@ namespace Gestor_de_catalogo
                 pictureBoxImg.Load("https://www.jennybeaumont.com/wp-content/uploads/2015/03/placeholder.gif");
             }
         }
-
         private void txtUrl_Leave(object sender, EventArgs e)
         {
             cargarImagen(txtUrl.Text);

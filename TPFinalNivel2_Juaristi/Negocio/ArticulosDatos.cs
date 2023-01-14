@@ -54,7 +54,6 @@ namespace Negocio
                 datos.cerrarConexion();
             }
         }
-
         public void Agregar(Articulo articulo_a_agregar)
         {
             Acceso_DB datos = new Acceso_DB();
@@ -83,7 +82,6 @@ namespace Negocio
                 datos.cerrarConexion();
             }
         }
-        
         public void Modificar(Articulo articulo_a_modificar)
         {
             Acceso_DB datos = new Acceso_DB();
