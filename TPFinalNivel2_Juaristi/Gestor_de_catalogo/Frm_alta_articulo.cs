@@ -67,6 +67,9 @@ namespace Gestor_de_catalogo
 
             try
             {
+                if (validaciones())
+                    return;
+                
                 if(articulo == null)
                     articulo = new Articulo();
 
@@ -114,6 +117,39 @@ namespace Gestor_de_catalogo
             {
                 pictureBoxImg.Load("https://www.jennybeaumont.com/wp-content/uploads/2015/03/placeholder.gif");
             }
+        }
+        private bool validaciones()
+        {
+            if(string.IsNullOrEmpty(txtCodigo.Text) || string.IsNullOrEmpty(txtNombre.Text) || string.IsNullOrEmpty(txtDescripcion.Text) || string.IsNullOrEmpty(txtUrl.Text))
+            {
+                MessageBox.Show("Los datos están incompletos...");
+                return true;
+            }
+
+            if(cboCategoria.SelectedIndex < 0)
+            {
+                MessageBox.Show("Por favor, seleccione la categoría");
+                return true;
+            }
+
+            if (cboMarca.SelectedIndex < 0)
+            {
+                MessageBox.Show("Por favor, seleccione la Marca");
+                return true;
+            }
+
+            try
+            {
+                decimal d = Convert.ToDecimal(txtPrecio.Text);
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Ingreso incorrecto de caracteres en la casilla de Precio, por favor introduzca datos númericos");
+                return true;
+            }
+
+            return false;
         }
     }
 }

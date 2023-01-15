@@ -43,6 +43,7 @@
             this.lblFiltroRapido = new System.Windows.Forms.Label();
             this.txtFiltroRapido = new System.Windows.Forms.TextBox();
             this.txtFiltro2 = new System.Windows.Forms.TextBox();
+            this.btnDetalle = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxImg)).BeginInit();
             this.SuspendLayout();
@@ -51,18 +52,18 @@
             // 
             this.dgvArticulos.BackgroundColor = System.Drawing.Color.DarkBlue;
             this.dgvArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvArticulos.Location = new System.Drawing.Point(12, 12);
+            this.dgvArticulos.Location = new System.Drawing.Point(12, 30);
             this.dgvArticulos.Name = "dgvArticulos";
             this.dgvArticulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvArticulos.Size = new System.Drawing.Size(685, 275);
+            this.dgvArticulos.Size = new System.Drawing.Size(685, 257);
             this.dgvArticulos.TabIndex = 0;
             this.dgvArticulos.SelectionChanged += new System.EventHandler(this.dgvArticulos_SelectionChanged);
             // 
             // picBoxImg
             // 
-            this.picBoxImg.Location = new System.Drawing.Point(703, 12);
+            this.picBoxImg.Location = new System.Drawing.Point(703, 30);
             this.picBoxImg.Name = "picBoxImg";
-            this.picBoxImg.Size = new System.Drawing.Size(245, 275);
+            this.picBoxImg.Size = new System.Drawing.Size(245, 257);
             this.picBoxImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picBoxImg.TabIndex = 1;
             this.picBoxImg.TabStop = false;
@@ -185,7 +186,7 @@
             // 
             this.lblFiltroRapido.AutoSize = true;
             this.lblFiltroRapido.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFiltroRapido.Location = new System.Drawing.Point(357, 297);
+            this.lblFiltroRapido.Location = new System.Drawing.Point(10, 8);
             this.lblFiltroRapido.Name = "lblFiltroRapido";
             this.lblFiltroRapido.Size = new System.Drawing.Size(95, 16);
             this.lblFiltroRapido.TabIndex = 12;
@@ -193,7 +194,7 @@
             // 
             // txtFiltroRapido
             // 
-            this.txtFiltroRapido.Location = new System.Drawing.Point(458, 293);
+            this.txtFiltroRapido.Location = new System.Drawing.Point(111, 4);
             this.txtFiltroRapido.Name = "txtFiltroRapido";
             this.txtFiltroRapido.Size = new System.Drawing.Size(133, 20);
             this.txtFiltroRapido.TabIndex = 13;
@@ -206,12 +207,26 @@
             this.txtFiltro2.Size = new System.Drawing.Size(133, 20);
             this.txtFiltro2.TabIndex = 14;
             // 
+            // btnDetalle
+            // 
+            this.btnDetalle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDetalle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDetalle.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.btnDetalle.Location = new System.Drawing.Point(324, 293);
+            this.btnDetalle.Name = "btnDetalle";
+            this.btnDetalle.Size = new System.Drawing.Size(86, 35);
+            this.btnDetalle.TabIndex = 15;
+            this.btnDetalle.Text = "Detalle";
+            this.btnDetalle.UseVisualStyleBackColor = true;
+            this.btnDetalle.Click += new System.EventHandler(this.btnDetalle_Click);
+            // 
             // FrmGestor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGray;
             this.ClientSize = new System.Drawing.Size(961, 402);
+            this.Controls.Add(this.btnDetalle);
             this.Controls.Add(this.txtFiltro2);
             this.Controls.Add(this.txtFiltroRapido);
             this.Controls.Add(this.lblFiltroRapido);
@@ -259,6 +274,7 @@
         private System.Windows.Forms.Label lblFiltroRapido;
         private System.Windows.Forms.TextBox txtFiltroRapido;
         private System.Windows.Forms.TextBox txtFiltro2;
+        private System.Windows.Forms.Button btnDetalle;
     }
 }
 
