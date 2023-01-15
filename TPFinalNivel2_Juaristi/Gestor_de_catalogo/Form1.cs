@@ -158,6 +158,25 @@ namespace Gestor_de_catalogo
             dgvArticulos.Columns["Id"].Visible = false;
         }
 
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            ArticulosDatos datos_filtrados = new ArticulosDatos();
 
+            if(txtFiltro2.Visible == true)
+            {
+                string filtro1 = txtFiltro.Text;
+                string filtro2 = txtFiltro2.Text;
+
+                dgvArticulos.DataSource = datos_filtrados.filtrar(filtro1,filtro2);
+            }
+            else
+            {
+                string campo = cboCampo.SelectedItem.ToString();
+                string criterio = cboCriterio.SelectedItem.ToString();
+                string filtro = txtFiltro.Text;
+
+                dgvArticulos.DataSource = datos_filtrados.filtrar(campo, criterio, filtro);
+            }
+        }
     }
 }
